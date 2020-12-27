@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using ChoreChart.Data;
 
 namespace ChoreChart
 {
@@ -26,6 +28,10 @@ namespace ChoreChart
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<ChoreChartContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ChoreChartContext")));
+            //services.AddDbContext<ChoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ChoreContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
