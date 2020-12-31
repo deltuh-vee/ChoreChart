@@ -1,11 +1,29 @@
 <h1>Add a Chore</h1>
-<form>
-    <label>Title</label><br>
-    <input type='text'><br>
-    <label>Description</label><br>
-    <textarea type='text'></textarea><br>
-    <label>Weekly</label><br>
-    <input type='checkbox'><br>
-    <label type='text'>Letter</label><br>
-    <input>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <label for="titleInput">Title</label><br />
+  <input
+    id="titleInput"
+    type="text"
+    [formControl]="form.controls['title']"
+  /><br />
+  <label for="descriptionInput">Description</label><br />
+  <textarea
+    id="descriptionInput"
+    type="text"
+    [formControl]="form.controls['description']"
+  ></textarea
+  ><br />
+  <label for="weeklyInput">Weekly</label><br />
+  <input
+    id="weeklyInput"
+    type="checkbox"
+    [formControl]="form.controls['weekly']"
+  /><br />
+  <label for="letterInput">Letter</label><br />
+  <input
+    id="letterInput"
+    type="text"
+    [formControl]="form.controls['letter']"
+  /><br />
+  <button type="submit">Submit</button>
 </form>

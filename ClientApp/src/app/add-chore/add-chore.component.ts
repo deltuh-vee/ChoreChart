@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-add-chore",
@@ -7,7 +7,19 @@ import { FormControl } from "@angular/forms";
   styleUrls: ["./add-chore.component.css"],
 })
 export class AddChoreComponent implements OnInit {
-  constructor() {}
+  form: FormGroup;
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      title: [],
+      description: [],
+      weekly: [],
+      letter: [],
+    });
+  }
 
   ngOnInit() {}
+
+  onSubmit(form: any): void {
+    console.log("submitted:", form);
+  }
 }

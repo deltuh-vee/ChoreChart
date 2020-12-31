@@ -13,4 +13,5 @@ export class ChoresService {
   getChores() {
     return this.http.get<Chore[]>(this.endpoint);
   }
+  addChore() {}
 }
