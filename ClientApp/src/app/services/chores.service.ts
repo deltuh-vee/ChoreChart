@@ -13,5 +13,7 @@ export class ChoresService {
   getChores() {
     return this.http.get<Chore[]>(this.endpoint);
   }
-  addChore() {}
+  addChore(chore: Chore): Observable<Chore> {
+    return this.http.post<Chore>(this.endpoint, chore);
+  }
 }

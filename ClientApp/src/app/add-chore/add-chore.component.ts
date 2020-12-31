@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
-
+import { ChoresService } from "../services/chores.service";
+import { Chore } from "../chore";
 @Component({
   selector: "app-add-chore",
   templateUrl: "./add-chore.component.html",
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 })
 export class AddChoreComponent implements OnInit {
   form: FormGroup;
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private choresService: ChoresService) {
     this.form = fb.group({
       title: [],
       description: [],
@@ -21,5 +22,6 @@ export class AddChoreComponent implements OnInit {
 
   onSubmit(form: any): void {
     console.log("submitted:", form);
+    this.choresService.addChore(form).subscribe();
   }
 }
