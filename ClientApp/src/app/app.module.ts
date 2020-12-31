@@ -6,8 +6,6 @@ import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { HomeComponent } from "./home/home.component";
-import { CounterComponent } from "./counter/counter.component";
-import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 import { AddChoreComponent } from "./add-chore/add-chore.component";
 import { ChoreWheelComponent } from "./chore-wheel/chore-wheel.component";
 
@@ -16,8 +14,6 @@ import { ChoreWheelComponent } from "./chore-wheel/chore-wheel.component";
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     AddChoreComponent,
     ChoreWheelComponent,
   ],
@@ -28,8 +24,6 @@ import { ChoreWheelComponent } from "./chore-wheel/chore-wheel.component";
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: "", component: ChoreWheelComponent, pathMatch: "full" },
-      { path: "counter", component: CounterComponent },
-      { path: "fetch-data", component: FetchDataComponent },
       { path: "add-chore", component: AddChoreComponent },
     ]),
   ],
