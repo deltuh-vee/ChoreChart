@@ -8,6 +8,7 @@ import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { HomeComponent } from "./home/home.component";
 import { AddChoreComponent } from "./add-chore/add-chore.component";
 import { ChoreWheelComponent } from "./chore-wheel/chore-wheel.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ChoreWheelComponent } from "./chore-wheel/chore-wheel.component";
       { path: "", component: ChoreWheelComponent, pathMatch: "full" },
       { path: "add-chore", component: AddChoreComponent },
     ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
