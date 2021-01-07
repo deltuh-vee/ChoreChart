@@ -5,16 +5,16 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
-import { HomeComponent } from "./home/home.component";
 import { AddChoreComponent } from "./add-chore/add-chore.component";
 import { ChoreWheelComponent } from "./chore-wheel/chore-wheel.component";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatDividerModule } from "@angular/material/divider";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
     AddChoreComponent,
     ChoreWheelComponent,
   ],
@@ -28,6 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: "add-chore", component: AddChoreComponent },
     ]),
     BrowserAnimationsModule,
+    MatExpansionModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

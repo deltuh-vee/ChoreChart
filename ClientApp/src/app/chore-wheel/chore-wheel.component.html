@@ -1,2 +1,11 @@
 <div *ngIf="loading">loading...</div>
-<pre>{{chores|json}}</pre>
+
+<mat-expansion-panel *ngFor="let chore of chores">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ chore.title }}
+    </mat-panel-title>
+    <mat-panel-description> </mat-panel-description>
+  </mat-expansion-panel-header>
+  {{ chore.description }}
+</mat-expansion-panel>
