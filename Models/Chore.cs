@@ -8,12 +8,12 @@ namespace ChoreChart.Models
         [Key]
         public int ChoreId { get; set; }
         [Required]
-        public string title { get; set; }
+        public string Title { get; set; }
         [Required]
-        public string letter { get; set; }
+        public string Letter { get; set; }
         [Required]
-        public string description { get; set; }
+        public string Description { get; set; }
         [Required]
-        public bool weekly { get; set; }
+        public bool Daily { get; set; }
     }
 }

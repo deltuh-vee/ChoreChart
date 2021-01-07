@@ -3,5 +3,5 @@ export interface Chore {
   title: string;
   letter: string;
   description: string;
-  weekly: boolean;
+  daily: boolean;
 }

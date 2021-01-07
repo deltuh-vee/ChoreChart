@@ -13,7 +13,7 @@ export class AddChoreComponent implements OnInit {
     this.form = fb.group({
       title: [],
       description: [],
-      weekly: [],
+      daily: [],
       letter: [],
     });
   }
