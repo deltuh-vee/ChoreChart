@@ -1,6 +1,6 @@
 <div *ngIf="loading">loading...</div>
 
-<mat-expansion-panel *ngFor="let chore of chores">
+<mat-expansion-panel *ngFor="let chore of chores$ | async">
   <mat-expansion-panel-header>
     <mat-panel-title>
       {{ chore.title }}
