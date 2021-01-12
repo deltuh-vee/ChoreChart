@@ -8,7 +8,7 @@ import { Chore } from "../chore";
   providedIn: "root",
 })
 export class ChoresService {
-  endpoint = "http:/localhost:5000/api/Chores";
+  endpoint = "https://localhost:5001/api/Chores";
   constructor(private http: HttpClient) {}
   getChores() {
     return this.http.get<Chore[]>(this.endpoint);

@@ -7,11 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ChoreChart.Data;
+using Microsoft.Data.SqlClient;
 
 namespace ChoreChart
 {
     public class Startup
     {
+        private string _connection = null;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -22,6 +24,9 @@ namespace ChoreChart
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var builder = new SqlConnectionStringBuilder(Configuration.GetConnectionString("ChoreChartContext"));
+            builder.Password = Configuration["DbPassword"];
+            _connection = builder.ConnectionString;
             services.AddCors();
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
@@ -31,7 +36,7 @@ namespace ChoreChart
             });
 
             services.AddDbContext<ChoreChartContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ChoreChartContext")));
+                    options.UseSqlServer(_connection));
             //services.AddDbContext<ChoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ChoreContext")));
         }
 
@@ -48,7 +53,7 @@ namespace ChoreChart
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseCors(options=>options.WithOrigins("http://localhost:5001").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
+            app.UseCors(options => options.AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
